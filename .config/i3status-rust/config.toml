@@ -1,0 +1,42 @@
+[theme.overrides]
+separator = ""
+
+[[block]]
+block = "net"
+device = "enp5s0"
+interval = 5
+format = "$ip $speed_up $speed_down"
+inactive_format = " $icon: down "
+
+[[block]]
+block = "cpu"
+interval = 1
+format = " $icon $utilization"
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents"
+
+[[block]]
+block = "temperature"
+format = " $icon $average avg, $max max"
+
+[[block]]
+block = "nvidia_gpu"
+format = " $icon $utilization $memory $temperature"
+
+[[block]]
+block = "sound"
+click = [
+  { button = "left", cmd = "pavucontrol" }
+]
+
+[[block]]
+block = "keyboard_layout"
+driver = "sway"   # or "sway" in swaywm
+#setxkbmap
+
+[[block]]
+block = "time"
+interval = 60
+format = " $timestamp.datetime(f:'%b %m-%d %a %H:%M %p')"
