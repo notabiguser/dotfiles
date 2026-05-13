@@ -13,8 +13,16 @@ style = "Bold"
 family = "Hack Nerd Font"
 style = "Italic"
 
-#[colors.primary]
-#background = "#000000"
+[colors.primary]
+background = "#000000"
+foreground = "#fefefe"
 
 #[window]
 #opacity = 0.71
+
+[cursor]
+style = "Beam"
+
+#[window.padding]
+#x = 8
+#y = 0
