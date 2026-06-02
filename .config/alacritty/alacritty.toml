@@ -14,7 +14,7 @@ family = "Hack Nerd Font"
 style = "Italic"
 
 [colors.primary]
-background = "#000000"
+background = "#0f141c"
 foreground = "#f6f6f6"
 
 #[window]
