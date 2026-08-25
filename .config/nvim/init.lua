@@ -6,6 +6,7 @@ vim.opt.expandtab = true        -- Превращать табы в пробел
 vim.opt.smartindent = true      -- Умные отступы
 vim.opt.termguicolors = true    -- Поддержка 24-битного цвета
 vim.opt.cursorline = true       -- Подсветка строки, где находится курсор
+vim.opt.cursorcolumn = true     -- Вертикальная подсветка столбца
 
 vim.opt.clipboard = "unnamedplus"
 
