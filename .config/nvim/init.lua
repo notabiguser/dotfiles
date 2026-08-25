@@ -34,7 +34,6 @@ local colors = {
 
     purple     = "#8a7199",
     red        = "#8b2438",
---    red_bright = "#a83a50",
 
     string     = "#a37487",
     number     = "#94677c",
