@@ -14,7 +14,7 @@ vim.opt.clipboard = "unnamedplus"
 --                   "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 vim.opt.fillchars = {
-   eob = "✟",
+   eob = "†",
 }
 
 -- ========================================
@@ -98,10 +98,6 @@ vim.api.nvim_set_hl(0, "Visual", {
 vim.api.nvim_set_hl(0, "WinSeparator", {
     fg = colors.border,
 })
-
-vim.opt.fillchars = {
-    eob = "✟",
-}
 
 vim.api.nvim_set_hl(0, "EndOfBuffer", {
     fg = colors.red,
