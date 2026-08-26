@@ -1,5 +1,7 @@
 [theme.overrides]
 separator = "♰"
+idle_fg = "#8b2438"
+info_fg = "#8b2438"
 
 [[block]]
 block = "net"
