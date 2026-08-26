@@ -10,8 +10,8 @@ vim.opt.cursorcolumn = true     -- Вертикальная подсветка �
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ," ..
-                  "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+-- vim.opt.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ," ..
+--                   "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 vim.opt.fillchars = {
    eob = "✟",
