@@ -1,14 +1,38 @@
-**/.ssh/id_*
-**/.ssh/*_id_*
-**/.ssh/known_hosts
+# SSH
+.ssh/
 
+# GPG
 .gnupg/
+
+# Cloud / infra credentials
+.aws/
+.kube/
+.docker/
+
+# Package manager credentials
+.npmrc
+.pypirc
+
+# Env files
+.env
+.env.*
+
+# Keys / certs
+*.pem
+*.key
+*.p12
+
+# Shell / tool caches
 .cache/
 .local/
 
+# Shell histories
 .bash_history
 .zsh_history
 .fish_history
 .python_history
 .*_history
-.*hst
+*_history
+
+# Misc network auth
+.netrc
