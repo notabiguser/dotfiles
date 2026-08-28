@@ -1,0 +1,50 @@
+[includeIf "gitdir:~/dream-job/"]
+    path = ~/.gitconfig-dream-job
+
+[includeIf "gitdir:~/passion/"]
+    path = ~/.gitconfig-passion
+
+[includeIf "gitdir:~/learning-opportunity/"]
+    path = ~/.gitconfig-learning-opportunity
+
+[includeIf "gitdir:~/character-development/"]
+    path = ~/.gitconfig-character-development
+
+[includeIf "gitdir:~/professional-growth/"]
+    path = ~/.gitconfig-professional-growth
+
+[includeIf "gitdir:~/slave-labor/"]
+    path = ~/.gitconfig-slave-labor
+
+[user]
+	email = 105306002+notabiguser@users.noreply.github.com
+	name = Unpaid Intern
+[core]
+	editor = nvim
+    autocrlf = input
+
+[init]
+	defaultBranch = main
+
+[merge]
+    conflictstyle = zdiff3
+
+[diff]
+    colorMoved = default
+
+[color]
+    ui = auto
+
+[alias]
+    st = status -sb
+    co = checkout
+    br = branch
+    df = diff
+    lg = log --oneline --graph --decorate --all
+    last = log -1 HEAD
+    unstage = restore --staged
+    amend = commit --amend --no-edit
+    aliases = config --get-regexp alias
+
+[commit]
+    gpgsign = false
