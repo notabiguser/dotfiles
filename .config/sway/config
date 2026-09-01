@@ -1,7 +1,6 @@
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -21,7 +20,8 @@ set $menu fuzzel
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
-output * bg /home/ivan/Downloads/wp1939718-roman-empire-wallpapers.jpg center
+#output * bg /home/ivan/Downloads/wp1939718-roman-empire-wallpapers.jpg center
+output * bg /home/ivan/Downloads/vertical-shot-old-building-s-hallway-with-windows-door-distance.jpg fit
 
 ### Input configuration
    input type:touchpad {
@@ -82,28 +82,53 @@ output * bg /home/ivan/Downloads/wp1939718-roman-empire-wallpapers.jpg center
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+set $ws1 "01"
+set $ws2 "02"
+set $ws3 "03"
+set $ws4 "04"
+set $ws5 "05"
+set $ws6 "06"
+set $ws7 "07"
+set $ws8 "08"
+set $ws9 "09"
+set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym $mod+o workspace number $ws11
+bindsym $mod+p workspace number $ws12
+bindsym $mod+equal workspace number $ws13
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+o move container to workspace number $ws11
+bindsym $mod+Shift+p move container to workspace number $ws12
+bindsym $mod+Shift+equal move container to workspace number $ws13
+
+
+
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -184,8 +209,8 @@ output * bg /home/ivan/Downloads/wp1939718-roman-empire-wallpapers.jpg center
     bindsym --locked XF86AudioStop exec playerctl stop
 
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 10%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 10%+
 
     # Special key to take a screenshot with grim
     bindsym Print exec grim
@@ -201,11 +226,16 @@ bar {
     # The default just shows the current date and time.
     status_command i3status-rs
 
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #323232 #323232 #5c5c5c
-#    }
+    colors {
+        statusline #ffffff
+        background #000000
+
+        focused_workspace   #8b2438 #111018 #ffffff
+        active_workspace    #211d26 #0d0b10 #ffffff
+        inactive_workspace  #211d26 #08080c #57525f
+        urgent_workspace    #a83a50 #2b1722 #ffffff
+        binding_mode        #8b2438 #0d0b10 #ffffff
+    }
 }
 
 include /etc/sway/config.d/*
@@ -219,5 +249,28 @@ hide_edge_borders smart
 default_border pixel 2
 default_floating_border pixel 2
 
-font pango:DejaVu Sans Mono 13
+#font pango:DejaVu Sans Mono 12
+font pango:Libertinus Sans 15
 
+# ============================================================
+# Cursor
+# ============================================================
+
+#seat * xcursor_theme Adwaita 36
+seat * xcursor_theme ComixCursors-Slim-White 48
+
+# ============================================================
+# Window colors
+# ============================================================
+#                  border    background  text      indicator  child_border
+# Active window
+client.focused         #9b2940   #0d0b10    #ffffff   #b83a52   #9b2940
+
+# Inactive window
+client.unfocused       #2a1820   #08080c    #57525f   #2a1820   #2a1820
+
+# Previously focused / inactive
+client.focused_inactive #4a202c  #0d0b10    #615b68   #4a202c   #4a202c
+
+# Urgent window
+client.urgent          #b83a52   #351823    #ffffff   #b83a52   #b83a52
