@@ -1,12 +1,12 @@
 [theme.overrides]
 separator = "♰"
-idle_fg = "#8b2438"
-info_fg = "#8b2438"
+idle_fg = "#9b2940"
+info_fg = "#9b2940"
 
 [[block]]
 block = "net"
 interval = 5
-format = " $ip $speed_up $speed_down "
+format = " $ip $speed_up UP $speed_down DOWN "
 inactive_format = " $icon: down "
 
 [[block]]
@@ -21,6 +21,9 @@ format = " $icon $mem_used_percents "
 [[block]]
 block = "temperature"
 format = " $icon $average avg, $max max "
+
+[[block]]
+block = "backlight"
 
 [[block]]
 block = "sound"
