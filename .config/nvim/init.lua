@@ -6,16 +6,54 @@ vim.opt.expandtab = true        -- Превращать табы в пробел
 vim.opt.smartindent = true      -- Умные отступы
 vim.opt.termguicolors = true    -- Поддержка 24-битного цвета
 vim.opt.cursorline = true       -- Подсветка строки, где находится курсор
-vim.opt.cursorcolumn = true     -- Вертикальная подсветка столбца
-
+vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.wrap = true
 
--- vim.opt.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ," ..
---                   "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+-- Убрать "How-to disable mouse" из контекстного меню
+vim.cmd([[
+    aunmenu PopUp.How-to\ disable\ mouse
+    aunmenu PopUp.-2-
+]])
 
-vim.opt.fillchars = {
-   eob = "†",
+vim.opt.list = true
+vim.opt.listchars = {
+    space = "·",
+    tab = "→ ",
+    trail = "•",
 }
+
+vim.cmd([[
+    cnoreabbrev W w
+    cnoreabbrev Q q
+    cnoreabbrev Wq wq
+    cnoreabbrev WQ wq
+]])
+
+-- ========================================
+-- Custom Keymap
+-- ========================================
+
+vim.g.mapleader = " "
+
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Сохранить файл" })
+
+vim.keymap.set("n", "<leader>o", "o<Esc>", { desc = "Новая строка снизу" })
+
+vim.keymap.set("n", "<leader>O", "O<Esc>", { desc = "Новая строка сверху" })
+
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Файловое дерево" })
+
+-- ========================================
+-- PLUGINS
+-- ========================================
+
+vim.pack.add({
+    "https://github.com/nvim-tree/nvim-tree.lua",
+    "https://github.com/nvim-tree/nvim-web-devicons",
+})
+
+require("nvim-tree").setup()
 
 -- ========================================
 -- Gothic theme
@@ -100,5 +138,9 @@ vim.api.nvim_set_hl(0, "WinSeparator", {
 })
 
 vim.api.nvim_set_hl(0, "EndOfBuffer", {
-    fg = colors.red,
+    fg = colors.fg,
 })
+
+vim.opt.fillchars = {
+    eob = "♰",
+}
