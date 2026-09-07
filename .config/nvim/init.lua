@@ -9,6 +9,9 @@ vim.opt.cursorline = true       -- Подсветка строки, где на�
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.wrap = true
+vim.opt.smoothscroll = true -- Enable smooth scrolling
+vim.opt.scrolloff = 8 -- Minimum number of screen lines to keep above and below the cursor
+vim.opt.updatetime = 50 -- Faster CursorHold events
 
 -- Убрать "How-to disable mouse" из контекстного меню
 vim.cmd([[
@@ -18,7 +21,6 @@ vim.cmd([[
 
 vim.opt.list = true
 vim.opt.listchars = {
-    space = "·",
     tab = "→ ",
     trail = "•",
 }
@@ -30,30 +32,54 @@ vim.cmd([[
     cnoreabbrev WQ wq
 ]])
 
+vim.keymap.set('n', '<C-c>', '<Esc>', { noremap = true, silent = true })
+
+-- print(" ")
+
+-- ===================================================
+-- 🚫 There are no arrowkeys for you anymore -- enjoy.
+-- ===================================================
+
+local arrows = { "<Up>", "<Down>", "<Left>", "<Right>" }
+local modes = { "n", "i", "v" }
+
+-- Список саркастичных приговоров
+local roasts = {
+    "Стрелочки? В моём Vim'е? Не думаю.",
+    "Используй hjkl, воин клавиатуры!",
+    "Ты серьёзно? Это же Vim, а не Notepad!",
+    "Стрелки отключены. Добро пожаловать в 1976 год.",
+    "Эта клавиша забанена пожизненно. Обжалованию не подлежит.",
+    "🖕", 
+}
+
+for _, mode in ipairs(modes) do
+  for _, key in ipairs(arrows) do
+    vim.keymap.set(mode, key, function()
+      local msg = roasts[math.random(#roasts)]
+      vim.notify(msg, vim.log.levels.WARN, { title = "🖕 Стрелочки запрещены" })
+    end, { noremap = true, silent = true })
+  end
+end
+
+-- ========================================
+-- Plugins
+-- ========================================
+
+
 -- ========================================
 -- Custom Keymap
 -- ========================================
 
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Сохранить файл" })
-
 vim.keymap.set("n", "<leader>o", "o<Esc>", { desc = "Новая строка снизу" })
 
 vim.keymap.set("n", "<leader>O", "O<Esc>", { desc = "Новая строка сверху" })
 
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Файловое дерево" })
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex, { desc = 'Open netrw' })
 
--- ========================================
--- PLUGINS
--- ========================================
-
-vim.pack.add({
-    "https://github.com/nvim-tree/nvim-tree.lua",
-    "https://github.com/nvim-tree/nvim-web-devicons",
-})
-
-require("nvim-tree").setup()
+vim.keymap.set('n', '<leader>t', ':botright split | terminal<CR>', { desc = 'Открыть терминал снизу' })
 
 -- ========================================
 -- Gothic theme
@@ -144,3 +170,5 @@ vim.api.nvim_set_hl(0, "EndOfBuffer", {
 vim.opt.fillchars = {
     eob = "♰",
 }
+
+vim.cmd("highlight Normal guibg=none ctermbg=none")
