@@ -1,3 +1,40 @@
+[user]
+	email = 105306002+notabiguser@users.noreply.github.com
+	name = notabiguser
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[core]
+	editor = nvim
+    autocrlf = input
+	excludesfile = ~/.gitignore-global
+
+[init]
+	defaultBranch = main
+
+[merge]
+    conflictstyle = zdiff3
+
+[diff]
+    colorMoved = default
+
+[color]
+    ui = auto
+
+[alias]
+    st = status -sb
+    df = diff
+    lg = log --oneline --graph --decorate --all
+    last = log -1 HEAD
+    unstage = restore --staged
+    amend = commit --amend --no-edit
+    aliases = config --get-regexp alias
+
+[commit]
+    gpgsign = false
+
+[gpg]
+	format = ssh
+
 [includeIf "gitdir:~/dream-job/"]
     path = ~/.gitconfig-dream-job
 
@@ -15,36 +52,3 @@
 
 [includeIf "gitdir:~/slave-labor/"]
     path = ~/.gitconfig-slave-labor
-
-[user]
-	email = 105306002+notabiguser@users.noreply.github.com
-	name = notabiguser
-[core]
-	editor = nvim
-    autocrlf = input
-
-[init]
-	defaultBranch = main
-
-[merge]
-    conflictstyle = zdiff3
-
-[diff]
-    colorMoved = default
-
-[color]
-    ui = auto
-
-[alias]
-    st = status -sb
-    co = checkout
-    br = branch
-    df = diff
-    lg = log --oneline --graph --decorate --all
-    last = log -1 HEAD
-    unstage = restore --staged
-    amend = commit --amend --no-edit
-    aliases = config --get-regexp alias
-
-[commit]
-    gpgsign = false
