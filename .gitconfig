@@ -18,7 +18,7 @@
 
 [user]
 	email = 105306002+notabiguser@users.noreply.github.com
-	name = Unpaid Intern
+	name = notabiguser
 [core]
 	editor = nvim
     autocrlf = input
