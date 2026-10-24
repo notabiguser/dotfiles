@@ -3,14 +3,14 @@ separator = "♰"
 idle_fg = "#9b2940"
 info_fg = "#9b2940"
 
-[[block]]
-block = "custom"
-command = "echo 'потихоньку'"
-interval = "once"
+#[[block]]
+#block = "custom"
+#command = "echo 'потихоньку'"
+#interval = "once"
 
 [[block]]
 block = "music"
-format = " $icon $prev$prev $play$play $next$next "
+format = " {$combo.str $prev$prev $play$play $next$next|потихоньку} "
 
 [[block]]
 block = "net"
