@@ -20,7 +20,7 @@ inactive_format = " $icon: down "
 
 [[block]]
 block = "cpu"
-interval = 1
+interval = 5
 format = " $icon $utilization.eng(w:3) "
 
 [[block]]
