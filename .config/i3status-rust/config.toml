@@ -4,19 +4,28 @@ idle_fg = "#9b2940"
 info_fg = "#9b2940"
 
 [[block]]
+block = "custom"
+command = "echo 'потихоньку'"
+interval = "once"
+
+[[block]]
+block = "music"
+format = " $icon $prev$prev $play$play $next$next "
+
+[[block]]
 block = "net"
 interval = 5
-format = " $ip $speed_up UP $speed_down DOWN "
+format = " $ip "
 inactive_format = " $icon: down "
 
 [[block]]
 block = "cpu"
 interval = 1
-format = " $icon $utilization "
+format = " $icon $utilization.eng(w:3) "
 
 [[block]]
 block = "memory"
-format = " $icon $mem_used_percents "
+format = " $icon $mem_used_percents.eng(w:3) "
 
 [[block]]
 block = "temperature"
@@ -27,15 +36,14 @@ block = "backlight"
 
 [[block]]
 block = "sound"
-click = [
-  { button = "left", cmd = "pavucontrol" }
-]
 
 [[block]]
 block = "battery"
-format = " $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
-device = "DisplayDevice"
-driver = "upower"
+format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
+full_format = " $icon full "
+not_charging_format = " $icon $percentage "
+device = "BAT0"
+driver = "sysfs"
 
 [[block]]
 block = "keyboard_layout"
@@ -44,4 +52,4 @@ driver = "sway"
 [[block]]
 block = "time"
 interval = 60
-format = " $timestamp.datetime(f:'%b %m-%d %a %H:%M %p')"
+format = " $timestamp.datetime(f:'%b %d-%a %I:%M %p')"
