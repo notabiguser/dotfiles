@@ -10,7 +10,10 @@ info_fg = "#9b2940"
 
 [[block]]
 block = "music"
-format = " {$combo.str $prev$prev $play$play $next$next|потихоньку} "
+format = " {$combo.str(max_w:30) $prev$prev $play$play $next$next|потихоньку} "
+
+[[block]]
+block = "sound"
 
 [[block]]
 block = "net"
@@ -33,9 +36,6 @@ format = " $icon $average avg, $max max "
 
 [[block]]
 block = "backlight"
-
-[[block]]
-block = "sound"
 
 [[block]]
 block = "battery"
