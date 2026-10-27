@@ -63,14 +63,3 @@ export DOCKER_BUILDKIT=1
 # ---------- Editor ----------
 export EDITOR=nvim
 export VISUAL=nvim
-
-# ---------- Aliases ----------
-# safety
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
-
-# quality of life
-alias v="nvim"
-alias grep="grep --color=auto"
-alias mkdir="mkdir -pv"
