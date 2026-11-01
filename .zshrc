@@ -7,37 +7,27 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
-setopt HIST_IGNORE_DUPS       # не писать повторяющиеся подряд команды
-setopt HIST_IGNORE_ALL_DUPS   # чистить старые дубликаты по всей истории
-setopt HIST_IGNORE_SPACE      # не писать команды, начатые с пробела
-setopt HIST_FIND_NO_DUPS      # не показывать дубликаты при поиске
-setopt HIST_VERIFY            # подтверждать команду перед запуском из истории
-setopt APPEND_HISTORY         # дописывать, а не перезаписывать файл истории
-setopt INC_APPEND_HISTORY     # писать в файл сразу, не дожидаясь выхода
-setopt SHARE_HISTORY          # общая история между открытыми сессиями
-setopt EXTENDED_HISTORY       # хранить таймстампы команд
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
 
 # ---------- Oh My Zsh ----------
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="mgutz"
+ZSH_THEME="eastwood"
 
 plugins=(
   git
   sudo
-  extract
   history-substring-search
-  # colored-man-pages
-  # command-not-found
-  # docker
-  # docker-compose
-  # kubectl
-  # kube-ps1
-  # kubectx
-  # helm
-  # python
-  # pip
-  # pyenv
-  # virtualenv
+  docker
+  docker-compose
+  kubectl
+  kube-ps1
+  terraform
+  vault
 )
 
 source $ZSH/oh-my-zsh.sh
