@@ -30,25 +30,10 @@
     aliases = config --get-regexp alias
 
 [commit]
-    gpgsign = false
+    gpgsign = true
 
 [gpg]
 	format = ssh
 
-[includeIf "gitdir:~/dream-job/"]
-    path = ~/.gitconfig-dream-job
-
-[includeIf "gitdir:~/passion/"]
-    path = ~/.gitconfig-passion
-
-[includeIf "gitdir:~/learning-opportunity/"]
-    path = ~/.gitconfig-learning-opportunity
-
-[includeIf "gitdir:~/character-development/"]
-    path = ~/.gitconfig-character-development
-
-[includeIf "gitdir:~/professional-growth/"]
-    path = ~/.gitconfig-professional-growth
-
-[includeIf "gitdir:~/slave-labor/"]
-    path = ~/.gitconfig-slave-labor
+[includeIf "gitdir:~/job/"]
+    path = ~/.gitconfig-job
